@@ -1,0 +1,32 @@
+plugins {
+	id 'java'
+	id 'eclipse'
+	id 'idea'
+	
+	id 'com.github.hierynomus.license' version '0.11.0'
+}
+
+repositories {
+	mavenCentral()
+	maven {
+		name  "gameminers"
+		url "http://mvn.gameminers.com/artifactory/repo"
+	}
+}
+
+defaultTasks 'licenseFormat', 'build'
+
+license {
+	header file('HEADER')
+	exclude '*.txt'
+	sourceSets = project.sourceSets
+	ignoreFailures false
+	strictCheck true
+	mapping {
+		java = 'SLASHSTAR_STYLE'
+	}
+}
+
+dependencies {
+	// Ethereal Lib does not currently have any dependencies
+}
