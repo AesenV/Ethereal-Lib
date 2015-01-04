@@ -18,29 +18,23 @@
 package com.gameminers.ethereal.lib;
 
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.Box;
-import javax.swing.JComponent;
-import javax.swing.JMenuItem;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JDialog;
 
-public class Components {
-
-	public static Box createPaddedBox(int axis) {
-		Box box = new Box(axis);
-		box.setBorder(new EmptyBorder(8, 8, 8, 8));
-		return box;
+public class AboutButtonListener implements ActionListener {
+	private final Window owner;
+	private final String product;
+	public AboutButtonListener(Window owner, String product) {
+		this.owner = owner;
+		this.product = product;
 	}
 	
-	public static JMenuItem createAboutDialogMenuItem(Window owner, String product) {
-		JMenuItem item = new JMenuItem("About…");
-		item.addActionListener(new AboutButtonListener(owner, product));
-		return item;
-	}
-
-	public static <T extends JComponent> T center(T component) {
-		component.setAlignmentX(0.5f);
-		return component;
+	@Override
+	public void actionPerformed(ActionEvent paramActionEvent) {
+		JDialog dialog = Dialogs.createAboutDialog(owner, product);
+		dialog.setVisible(true);
 	}
 
 }

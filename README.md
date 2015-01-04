@@ -22,24 +22,24 @@ Maven
 <dependency>
     <groupId>com.gameminers</groupId>
     <artifactId>ethereallib</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
 </dependency>
 ```
 
 Gradle
 ------
 ```
-compile: 'com.gameminers:ethereallib:1.0'
+compile: 'com.gameminers:ethereallib:1.2'
 ```
 **OR**
 ```
-compile(group: 'com.gameminers', name: 'ethereallib', version: '1.0')
+compile(group: 'com.gameminers', name: 'ethereallib', version: '1.2')
 ```
 
 Ivy
 ---
 ```
-<dependency org="com.gameminers" name="ethereallib" rev="1.0">
+<dependency org="com.gameminers" name="ethereallib" rev="1.2">
     <artifact name="ethereallib" ext="jar"/>
 </dependency>
 ```

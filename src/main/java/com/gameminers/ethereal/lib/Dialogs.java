@@ -18,7 +18,15 @@
 package com.gameminers.ethereal.lib;
 
 import java.awt.Component;
+import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.Box;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class Dialogs {
@@ -27,6 +35,32 @@ public class Dialogs {
 		t.printStackTrace();
 		JOptionPane.showMessageDialog(parent, message+"\n"+t.toString()+"\n\nSee the console for more details.", "Error",
 			JOptionPane.ERROR_MESSAGE, Resources.getPNGIconAsset("iface/error-32"));
+	}
+
+	public static JDialog createAboutDialog(Window owner, String product) {
+		final JDialog about = new JDialog(owner, "About Ethereal "+product);
+		about.setContentPane(Box.createVerticalBox());
+		about.add(Components.center(new JLabel(new ImageIcon(owner.getIconImages().get(1)))));
+		about.add(Components.center(new JLabel("Ethereal "+product)));
+		about.add(Components.center(new JLabel("A member of the Ethereal Suite")));
+		about.add(Components.center(new JLabel("https://ethereal.gameminers.com/"+product.toLowerCase()+".html")));
+		about.add(Box.createVerticalStrut(20));
+		about.add(Components.center(new JLabel("© 2014-2015 Aesen Vismea")));
+		about.add(Box.createVerticalStrut(20));
+		about.add(Components.center(new JLabel("This program is free software; you can distribute it according")));
+		about.add(Components.center(new JLabel("to the terms of the GNU GPLv3 or any later version.")));
+		about.add(Box.createVerticalGlue());
+		JButton ok = Components.center(new JButton("Okay"));
+		ok.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent paramActionEvent) {
+				about.dispose();
+			}
+		});
+		about.add(ok);
+		about.pack();
+		about.setLocationRelativeTo(owner);
+		return about;
 	}
 
 }

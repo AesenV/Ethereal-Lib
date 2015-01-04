@@ -37,7 +37,7 @@ public class Frames {
 
 	public static JFrame create(String product) {
 		JFrame window = new JFrame("Ethereal "+product);
-		window.setIconImages(Resources.loadPNGAsset("iface/icon", "iface/icon-32"));
+		window.setIconImages(Resources.getPNGAsset("iface/icon", "iface/icon-32"));
 		window.setSize(854, 480);
 		window.setLocationByPlatform(true);
 		window.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
