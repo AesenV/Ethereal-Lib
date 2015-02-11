@@ -20,8 +20,8 @@ package com.gameminers.ethereal.lib;
 import java.io.File;
 
 public class Directories {
-	private static final boolean TILDIZE = getOS() == OperatingSystem.LINUX ||
-											getOS() == OperatingSystem.MAC;
+	private static final boolean TILDIZE = OperatingSystem.getCurrentOS() == OperatingSystem.LINUX ||
+										   OperatingSystem.getCurrentOS() == OperatingSystem.MAC;
 	private static final String USER_HOME;
 	static {
 		String home = System.getProperty("user.home");
