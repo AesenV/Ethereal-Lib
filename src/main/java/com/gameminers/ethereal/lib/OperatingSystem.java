@@ -21,5 +21,30 @@ public enum OperatingSystem {
 	WINDOWS,
 	MAC,
 	LINUX,
-	OTHER
+	OTHER;
+	
+	public static OperatingSystem getCurrentOS() {
+	    String os = System.getProperty("os.name");
+        if (os.equalsIgnoreCase("AIX"))
+            return LINUX;
+        if (os.equalsIgnoreCase("Digital Unix"))
+            return LINUX;
+        if (os.equalsIgnoreCase("FreeBSD"))
+            return LINUX;
+        if (os.equalsIgnoreCase("HP UX"))
+            return LINUX;
+        if (os.equalsIgnoreCase("Irix"))
+            return LINUX;
+        if (os.equalsIgnoreCase("Linux"))
+            return LINUX;
+        if (os.contains("OS X"))
+            return MAC;
+        if (os.equalsIgnoreCase("MPE/iX"))
+            return LINUX;
+        if (os.equalsIgnoreCase("Solaris"))
+            return LINUX;
+        if (os.startsWith("Windows"))
+            return WINDOWS;
+        return OTHER;
+	}
 }

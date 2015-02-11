@@ -35,35 +35,10 @@ public class Directories {
 		return TILDIZE ? path.replace(USER_HOME, "~") : path;
 	}
 	
-	public static OperatingSystem getOS() {
-		String os = System.getProperty("os.name");
-		if (os.equalsIgnoreCase("AIX"))
-			return OperatingSystem.LINUX;
-		if (os.equalsIgnoreCase("Digital Unix"))
-			return OperatingSystem.LINUX;
-		if (os.equalsIgnoreCase("FreeBSD"))
-			return OperatingSystem.LINUX;
-		if (os.equalsIgnoreCase("HP UX"))
-			return OperatingSystem.LINUX;
-		if (os.equalsIgnoreCase("Irix"))
-			return OperatingSystem.LINUX;
-		if (os.equalsIgnoreCase("Linux"))
-			return OperatingSystem.LINUX;
-		if (os.contains("OS X"))
-			return OperatingSystem.MAC;
-		if (os.equalsIgnoreCase("MPE/iX"))
-			return OperatingSystem.LINUX;
-		if (os.equalsIgnoreCase("Solaris"))
-			return OperatingSystem.LINUX;
-		if (os.startsWith("Windows"))
-			return OperatingSystem.WINDOWS;
-		return OperatingSystem.OTHER;
-	}
-	
 	public static File getAppData(String name) {
 		final String home = System.getProperty("user.home", ".");
 		File dir = null;
-		switch (getOS()) {
+		switch (OperatingSystem.getCurrentOS()) {
 			case LINUX:
 			case OTHER:
 				dir = new File(home, '.' + name + '/');
