@@ -1,6 +1,6 @@
 /*
  *  Ethereal Lib
- *  Copyright (C) 2014-2015 Aesen Vismea
+ *  Copyright (C) 2014-2015 Aesen Vismea and Falkreon
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
