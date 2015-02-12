@@ -45,7 +45,7 @@ public class Dialogs {
 		about.add(Components.center(new JLabel("A member of the Ethereal Suite")));
 		about.add(Components.center(new JLabel("https://ethereal.gameminers.com/"+product.toLowerCase()+".html")));
 		about.add(Box.createVerticalStrut(20));
-		about.add(Components.center(new JLabel("© 2014-2015 Aesen Vismea")));
+		about.add(Components.center(new JLabel("© 2014-2015 Aesen Vismea and Falkreon")));
 		about.add(Box.createVerticalStrut(20));
 		about.add(Components.center(new JLabel("This program is free software; you can distribute it according")));
 		about.add(Components.center(new JLabel("to the terms of the GNU GPLv3 or any later version.")));
