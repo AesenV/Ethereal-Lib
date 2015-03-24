@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'eclipse'
 	id 'idea'
-	
+	id 'maven'
 	id 'com.github.hierynomus.license' version '0.11.0'
 }
 
@@ -26,6 +26,19 @@ license {
 		java = 'SLASHSTAR_STYLE'
 	}
 }
+
+// For maven ------------\/
+group                = 'com.gameminers'
+//archiveTask.baseName = 'ethereallib'
+version              = '1.3'
+
+install {
+    repositories.mavenInstaller {
+        pom.artifactId = 'ethereallib'
+    }
+}
+
+// ----------------------/\
 
 sourceCompatibility = '1.7'
 
