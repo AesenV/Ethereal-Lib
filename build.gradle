@@ -45,3 +45,8 @@ sourceCompatibility = '1.7'
 dependencies {
 	// Ethereal Lib does not currently have any dependencies
 }
+
+//Stop About box from derping on Windows
+tasks.withType(JavaCompile) {
+	options.encoding = 'UTF-8'
+}

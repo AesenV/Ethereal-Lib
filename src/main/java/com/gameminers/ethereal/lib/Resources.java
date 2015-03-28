@@ -17,7 +17,7 @@
  */
 package com.gameminers.ethereal.lib;
 
-import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -48,7 +48,7 @@ public class Resources {
 	 * @param basename The base name of the asset, without the extension.
 	 * @return The freshly-loaded Image from this asset, or null if it does not exist
 	 */
-	public static Image loadPNGAsset(String basename) {
+	public static BufferedImage loadPNGAsset(String basename) {
 		try {
 			return ImageIO.read(getAssetURL(basename+".png"));
 		} catch (IOException e) {
@@ -65,9 +65,9 @@ public class Resources {
 	 * @param basenames The base names of the assets, without their extensions.
 	 * @return A List of loaded images, in the same order as they were passed.
 	 */
-	public static List<Image> loadPNGAsset(String... basenames) {
+	public static List<BufferedImage> loadPNGAsset(String... basenames) {
 		if (basenames.length == 0) throw new ArrayIndexOutOfBoundsException("loadPNGAsset needs at least one argument");
-		List<Image> images = new ArrayList<Image>(basenames.length);
+		List<BufferedImage> images = new ArrayList<BufferedImage>(basenames.length);
 		for (String basename : basenames) {
 			images.add(loadPNGAsset(basename));
 		}
@@ -94,9 +94,9 @@ public class Resources {
 	 * @param basenames The base names of the assets, without their extensions.
 	 * @return A List of loaded images, in the same order as they were passed.
 	 */
-	public static List<Image> getPNGAsset(String... basenames) {
+	public static List<BufferedImage> getPNGAsset(String... basenames) {
 		if (basenames.length == 0) throw new ArrayIndexOutOfBoundsException("loadPNGAsset needs at least one argument");
-		List<Image> images = new ArrayList<Image>(basenames.length);
+		List<BufferedImage> images = new ArrayList<BufferedImage>(basenames.length);
 		for (String basename : basenames) {
 			images.add(getPNGAsset(basename));
 		}
@@ -111,12 +111,12 @@ public class Resources {
 	 * @param basename The base names of the asset, without it's extension.
 	 * @return The loaded Image
 	 */
-	public static Image getPNGAsset(String basename) {
+	public static BufferedImage getPNGAsset(String basename) {
 		String key = "Image:"+basename;
 		if (!cache.containsKey(key)) {
 			cache.put(key, loadPNGAsset(basename));
 		}
-		return (Image)cache.get(key);
+		return (BufferedImage)cache.get(key);
 	}
 	
 	/**
@@ -136,6 +136,6 @@ public class Resources {
 		if (!cache.containsKey(key)) {
 			cache.put(key, loadPNGAsset(basename));
 		}
-		return new ImageIcon((Image)cache.get(key));
+		return new ImageIcon((BufferedImage)cache.get(key));
 	}
 }
